@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Outfit:wght@300;400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Cinzel:wght@500;700;900&family=MedievalSharp&family=Outfit:wght@300;400;500;600&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -326,7 +326,419 @@
       </div>
 
       <button class="secret-panel-lock-again" id="secretPanelLockBtn">🔒 Lock Again</button>
+
+      <!-- Treasure Chest at the bottom of Lock Again button, right side -->
+      <div class="panel-chest-bottom-row">
+        <div class="panel-treasure-chest" id="panelTreasureChest" role="button" tabindex="0"
+          title="Open the Secret Treasure Chest">
+          <div class="chest-halo"></div>
+          <div class="chest-sparkles">
+            <span class="sparkle s1">✨</span>
+            <span class="sparkle s2">✦</span>
+            <span class="sparkle s3">⭐</span>
+          </div>
+          <div class="chest-svg-container">
+            <svg viewBox="0 0 100 85" class="chest-svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="woodLid" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#8a4822" />
+                  <stop offset="50%" stop-color="#5a2d13" />
+                  <stop offset="100%" stop-color="#3b1c0b" />
+                </linearGradient>
+                <linearGradient id="woodBase" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#6e3717" />
+                  <stop offset="50%" stop-color="#4a220c" />
+                  <stop offset="100%" stop-color="#2c1305" />
+                </linearGradient>
+                <linearGradient id="goldHinges" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#ffe680" />
+                  <stop offset="45%" stop-color="#d4af37" />
+                  <stop offset="100%" stop-color="#8a6d14" />
+                </linearGradient>
+              </defs>
+              <ellipse cx="50" cy="80" rx="42" ry="5" fill="rgba(0,0,0,0.35)" />
+              <path class="chest-svg-base" d="M14 44 L86 44 L81 76 L19 76 Z" fill="url(#woodBase)" stroke="#230d04"
+                stroke-width="2" />
+              <line x1="16" y1="55" x2="84" y2="55" stroke="#2a1206" stroke-width="1.2" opacity="0.7" />
+              <line x1="17.5" y1="66" x2="82.5" y2="66" stroke="#2a1206" stroke-width="1.2" opacity="0.7" />
+              <rect x="15" y="44" width="7" height="32" rx="2" fill="url(#goldHinges)" stroke="#523e05"
+                stroke-width="0.8" />
+              <rect x="78" y="44" width="7" height="32" rx="2" fill="url(#goldHinges)" stroke="#523e05"
+                stroke-width="0.8" />
+              <circle cx="18.5" cy="48" r="1.3" fill="#ffeaa7" />
+              <circle cx="18.5" cy="72" r="1.3" fill="#ffeaa7" />
+              <circle cx="81.5" cy="48" r="1.3" fill="#ffeaa7" />
+              <circle cx="81.5" cy="72" r="1.3" fill="#ffeaa7" />
+              <g class="chest-svg-lid">
+                <path d="M10 44 C10 20, 90 20, 90 44 Z" fill="url(#woodLid)" stroke="#230d04" stroke-width="2" />
+                <path d="M12 36 Q50 24 88 36" fill="none" stroke="#2a1206" stroke-width="1.2" opacity="0.7" />
+                <path d="M16 29 Q50 18 84 29" fill="none" stroke="#2a1206" stroke-width="1.2" opacity="0.7" />
+                <path d="M14 44 C14 22, 24 22, 24 44" fill="none" stroke="url(#goldHinges)" stroke-width="5"
+                  stroke-linecap="round" />
+                <path d="M76 44 C76 22, 86 22, 86 44" fill="none" stroke="url(#goldHinges)" stroke-width="5"
+                  stroke-linecap="round" />
+                <circle cx="19" cy="38" r="1.3" fill="#ffeaa7" />
+                <circle cx="21" cy="28" r="1.3" fill="#ffeaa7" />
+                <circle cx="79" cy="28" r="1.3" fill="#ffeaa7" />
+                <circle cx="81" cy="38" r="1.3" fill="#ffeaa7" />
+              </g>
+              <path d="M43 40 L57 40 L55 56 L45 56 Z" fill="url(#goldHinges)" stroke="#523e05" stroke-width="1" />
+              <circle cx="50" cy="48" r="2.5" fill="#200d04" />
+              <polygon points="49,48 51,48 51.5,53 48.5,53" fill="#200d04" />
+            </svg>
+          </div>
+          <div class="chest-badge">
+            <span class="chest-badge-crown">👑</span>
+            <span class="chest-badge-text">Royal Secret</span>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+
+
+  <!-- ============ ROYAL SCROLL LETTER PANEL (Page opened by Treasure Chest) ============ -->
+  <div class="secret-panel royal-letter-panel" id="royalLetterPanel" aria-hidden="true">
+    <!-- Ambient atmospheric floating light dust -->
+    <div class="royal-panel-atmosphere">
+      <div class="royal-dust-mote mote-1"></div>
+      <div class="royal-dust-mote mote-2"></div>
+      <div class="royal-dust-mote mote-3"></div>
+      <div class="royal-dust-mote mote-4"></div>
+      <div class="royal-dust-mote mote-5"></div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <div class="royal-nav-bar">
+      <button class="royal-back-btn" id="royalBackBtn" title="Back to Secret Garden">
+        <span class="royal-back-arrow">←</span>
+        <span>Back to Secret Garden</span>
+      </button>
+      <div class="royal-nav-title">💌 A Letter For You</div>
+      <button class="royal-close-all-btn" id="royalCloseBtn" title="Close">✕ Close</button>
+    </div>
+
+    <div class="royal-scroll-stage">
+      <!-- Instruction banner -->
+      <div class="royal-scroll-prompt" id="royalScrollPrompt">
+        <span class="royal-prompt-sparkle">✦</span>
+        <span class="royal-prompt-text">Touch the Wax Seal to Open the Letter</span>
+        <span class="royal-prompt-sparkle">✦</span>
+      </div>
+
+      <!-- Royal Scroll Container -->
+      <div class="royal-scroll-container" id="royalScrollContainer">
+
+        <!-- Top Wooden Dowel Roller with Gold Finials -->
+        <div class="scroll-dowel scroll-dowel-top">
+          <div class="dowel-finial finial-left"></div>
+          <div class="dowel-bar"></div>
+          <div class="dowel-finial finial-right"></div>
+        </div>
+
+        <!-- ROLLED SCROLL BUNDLE (Visible initially before opening) -->
+        <div class="scroll-rolled-bundle" id="scrollRolledBundle" role="button" tabindex="0"
+          title="Click or touch to open the letter">
+          <div class="scroll-rolled-cylinder">
+            <div class="scroll-parchment-ridges"></div>
+            <div class="scroll-crimson-ribbon"></div>
+
+            <!-- Royal Wax Seal Button -->
+            <div class="royal-wax-seal" id="royalWaxSealBtn">
+              <div class="wax-seal-drips"></div>
+              <div class="wax-seal-face">
+                <span class="wax-seal-crest">👑</span>
+                <span class="wax-seal-touch-lbl">TOUCH<br />TO OPEN</span>
+              </div>
+              <div class="wax-seal-glow"></div>
+            </div>
+          </div>
+          <div class="scroll-tap-indicator">
+            <span class="finger-pulse">👆</span>
+            <span>Tap seal to open letter</span>
+          </div>
+        </div>
+
+        <!-- UNROLLED PARCHMENT SHEET (Smoothly unrolls vertically on touch) -->
+        <div class="scroll-unrolled-sheet" id="scrollUnrolledSheet">
+          <!-- Authentic Old Parchment Paper Content -->
+          <div class="parchment-inner">
+            <!-- Ornate Corner Filigrees -->
+            <div class="corner-filigree corner-tl">⚜</div>
+            <div class="corner-filigree corner-tr">⚜</div>
+            <div class="corner-filigree corner-bl">⚜</div>
+            <div class="corner-filigree corner-br">⚜</div>
+
+            <!-- Letter Header -->
+            <div class="royal-proclamation-header">
+              <h2 class="royal-recipient-title">To Kitty 🐱❤️</h2>
+              <div class="royal-ornament-line">✦ ━━━━━ ⚜ ━━━━━ ✦</div>
+            </div>
+
+            <div class="royal-letter-body" id="royalLetterContent">
+              <p class="royal-paragraph royal-dropcap">
+                First, I'm sorry for saying all this to you. I don't know how you'll take this or what you'll think
+                after reading it, but please don't get tense or angry immediately, okay? Just listen to what I have to
+                say first. And then, whatever you feel is completely valid. There's nothing wrong with being angry or
+                upset.
+              </p>
+              <p class="royal-paragraph">
+                First, I believe you might remember something I told you before. I once told you that I liked a girl
+                one-sidedly. I hope you remember that conversation. Well, this message is actually meant for that girl.
+                I think by now you might have understood who I'm talking about. ❤️
+              </p>
+              <p class="royal-paragraph">
+                I've been noticing you since our first year, literally from the very first day. I still remember you
+                wearing that purple dress (I think it was purple 😅). From that day onwards, something about you caught
+                my attention, and eventually, I genuinely fell for you.
+              </p>
+              <p class="royal-paragraph">
+                I tried many times to talk to you, but I couldn't gather the courage. I was always afraid of approaching
+                you because I didn't know how you would respond or what you would think about me. Honestly, I was scared
+                of what your opinion of me might be.
+              </p>
+              <p class="royal-paragraph">
+                Whenever I came near your classroom, 6003, I think you might remember that you would usually be with
+                your three friends. I mostly got to see you during lunch breaks, and sometimes while wandering around
+                outside the classrooms. From the day I first saw you, I've always felt a strange sensation in my heart
+                whenever I saw you. And the funny thing is, even today, that feeling hasn't changed. It's still the
+                same. 🥹❤️
+              </p>
+              <p class="royal-paragraph">
+                It was only during our second year that I finally started talking to you. Even now, I haven't forgotten
+                those initial conversations. From the very first time we started talking until today, I've always felt
+                genuinely happy whenever I got the chance to speak with you.
+              </p>
+              <p class="royal-paragraph">
+                Sometimes, I still wish I could be in your class just to spend more time with you. 😅
+              </p>
+              <p class="royal-paragraph">
+                As I got to know you better, the way I thought about you completely changed from what I had initially
+                imagined. I started discovering more about your personality, your childish side, your silly behaviours
+                and all those little things that make you who you are.
+              </p>
+              <p class="royal-paragraph">
+                We also had some fights during the same year. There were situations where, because of me, you had
+                arguments with the boys in our class, and eventually, you refused to talk to me. That genuinely hurt me,
+                but more importantly, I realised that my behaviour had hurt you too.
+              </p>
+              <p class="royal-paragraph">
+                I was just playing around with you, but I didn't understand that it was hurting your feelings. I'm
+                genuinely sorry for that. I know I should have been more careful with your feelings.
+              </p>
+              <p class="royal-paragraph">
+                As time passed, I got to know you even better. Your childish side is honestly one of the cutest things
+                about you. 😅❤️ Sometimes, I wish I could preserve that side of yours forever. The silly things you do,
+                the way you behave sometimes and even the way you get angry are all little things I've come to
+                appreciate.
+              </p>
+              <p class="royal-paragraph">
+                And whenever you get angry, I know there is usually a reason behind it. Sometimes, even when I don't
+                understand it immediately, I realise later that you had a point.
+              </p>
+              <p class="royal-paragraph">
+                The decisions and advice you've given me have saved me many times. Sometimes, I genuinely wish I could
+                always be by your side, supporting you whenever you need someone. But I also understand that it might
+                not always be possible.
+              </p>
+              <p class="royal-paragraph">
+                And honestly, when I think about why I like you so much, I don't even have one particular reason. I just
+                do. Maybe it's all those little things about you that made me feel this way. ❤️
+              </p>
+              <p class="royal-paragraph">
+                When you went abroad for your research studies, I started thinking about you even more. I used to ask
+                our mutual friends when you would come back. They even used to scold me, saying, "Engala la unakku
+                theriyalaya? Unakku ava mattum dhaan theriyuma?" 😂
+              </p>
+              <p class="royal-paragraph">
+                Of course, I knew! But what could I do? I genuinely wanted to talk to you.
+              </p>
+              <p class="royal-paragraph">
+                I seriously thought about calling you, but I didn't know how to approach you. I was worried that you
+                might feel uncomfortable if I suddenly called you. So I decided to wait until you came back and let you
+                talk whenever you felt like it.
+              </p>
+              <p class="royal-paragraph">
+                I missed you a lot. And whenever I told you that I missed you, I genuinely meant every word. I don't
+                know how you interpreted those words or whether you misunderstood me sometimes, but I never wanted to
+                make you uncomfortable.
+              </p>
+              <p class="royal-paragraph">
+                Then, when you finally came back to India, I was genuinely so happy! I had been waiting to see you and
+                talk to you again. I was honestly so excited about it. It felt like I had something wonderful to look
+                forward to. 🥹
+              </p>
+              <p class="royal-paragraph">
+                After that, I also got opportunities to spend time with you. Sometimes, when I had projects or other
+                work to do, I would come to the same classroom, sit quietly and just enjoy being around you. Maybe you
+                wouldn't even have noticed, but those little moments meant a lot to me.
+              </p>
+              <p class="royal-paragraph">
+                I also shared many of my personal problems with you. I've cried in front of you and shared things that I
+                haven't completely shared with anyone else. There are other people I've talked to, of course, but the
+                way I've opened up to you is different.
+              </p>
+              <p class="royal-paragraph">
+                You've been there for me during some of my lowest moments, and that means more to me than I can explain.
+              </p>
+              <p class="royal-paragraph">
+                Especially that day at Lava, when I was crying about an issue and sharing everything with you. I will
+                never forget that moment because you were there, comforting me when I needed someone the most.
+              </p>
+              <p class="royal-paragraph">
+                There are so many moments like that in my life. So many happy memories that I genuinely cherish because
+                you were a part of them.
+              </p>
+              <p class="royal-paragraph">
+                And for all those moments, I want to say thank you. Thank you for listening to me, understanding me and
+                standing beside me when I was feeling low. ❤️
+              </p>
+              <p class="royal-paragraph">
+                Also, I seriously need to apologise to you for what happened at Lava. My behaviour that day was
+                completely wrong, and I know that. I genuinely regret it. I wanted to apologise to you in person, but
+                somehow I couldn't gather the courage to do it properly.
+              </p>
+              <p class="royal-paragraph">
+                I don't know what you think about me because of that incident, but I want you to know that I'm truly
+                sorry.
+              </p>
+              <p class="royal-paragraph">
+                We've also gone out with our friends, visited different shops and spent time together. Those were some
+                genuinely happy moments for me. I enjoyed every bit of that time, and I'll always remember those
+                memories. 😊
+              </p>
+              <p class="royal-paragraph">
+                Now, there's one more thing I want to tell you. I know this might change the way you look at me, and I'm
+                honestly a little scared to say it. But I can't keep it a secret anymore. I want you to know what I've
+                been feeling all these years.
+              </p>
+              <p class="royal-paragraph">
+                Yes, I genuinely love you.
+              </p>
+              <p class="royal-paragraph">
+                I know that saying this might change your opinion of me. Maybe the picture you have of me might change.
+                Maybe things between us might become different. You might even decide that you don't want to talk to me
+                anymore or block me. I understand that possibility, and I won't blame you for it.
+              </p>
+              <p class="royal-paragraph">
+                I know this is my feeling, and I don't expect you to feel the same way.
+              </p>
+              <p class="royal-paragraph">
+                If I propose to you, I already have an idea of what your answer might be. I know there's a possibility
+                that your answer will be NO. I'm not saying this because I want sympathy or because I'm expecting you to
+                change your mind.
+              </p>
+              <p class="royal-paragraph">
+                I just don't want to hide my feelings from you anymore.
+              </p>
+              <p class="royal-paragraph">
+                If you ever wish to talk about this, you can approach me whenever you're comfortable. I'll never force
+                you to discuss it, and I won't keep asking you about it. It's completely your choice.
+              </p>
+              <p class="royal-paragraph">
+                You don't even have to give me an answer immediately. Take your time. Even if it takes one or two years,
+                if you ever feel like talking about this, I'll be happy to listen. But please don't feel that you have
+                to wait or that you're responsible for my feelings. Your happiness and comfort matter too.
+              </p>
+              <p class="royal-paragraph">
+                You know, I have so many dreams. I've imagined a future where I could achieve many things, and in some
+                of those dreams, I had someone special beside me. I even imagined doing so much for you and fulfilling
+                your wishes.
+              </p>
+              <p class="royal-paragraph">
+                But I know dreams don't always become reality. Maybe in another universe, things might have turned out
+                differently. 😅❤️
+              </p>
+              <p class="royal-paragraph">
+                And finally, there's one little thing I want to explain.
+              </p>
+              <p class="royal-paragraph">
+                Remember the nickname I gave you? <strong>"Kitty" 🐱</strong>
+              </p>
+              <p class="royal-paragraph">
+                Do you know why I chose that name?
+              </p>
+              <p class="royal-paragraph">
+                Because I always wanted you to remain that childish, innocent and silly version of yourself around the
+                people you're close to. Someone who can share everything without fear, someone who doesn't have to
+                pretend to be different and someone who can be completely herself.
+              </p>
+              <p class="royal-paragraph">
+                I hope you never lose that side of yourself. It's genuinely one of the things I like most about you. ❤️
+              </p>
+              <p class="royal-paragraph">
+                There are still so many things I want to share with you, so many memories I could talk about and so many
+                feelings I couldn't put into words. But I think this message is already long enough. 😂
+              </p>
+              <p class="royal-paragraph">
+                I've wanted to say all these things for years, and finally, I've found the courage to write them down.
+              </p>
+              <p class="royal-paragraph">
+                After reading this, you might see me differently. Maybe our friendship will remain the same, maybe
+                things will change, or maybe we won't talk as much as before. I honestly don't know what will happen
+                next.
+              </p>
+              <p class="royal-paragraph">
+                But whatever happens, I won't blame you.
+              </p>
+              <p class="royal-paragraph">
+                I would genuinely love to hear your opinion whenever you're comfortable sharing it. No pressure, no
+                expectations and no force.
+              </p>
+              <p class="royal-paragraph">
+                And one last thing...
+              </p>
+              <p class="royal-paragraph">
+                Right now, I'm a jobless person who hasn't achieved everything he dreams of yet. I can't promise you
+                anything today. But I hope that one day I'll become successful, achieve my dreams and become someone who
+                can make the people around me happy.
+              </p>
+              <p class="royal-paragraph">
+                I have so many wishes and dreams, and one of them has always been to see you achieve everything you wish
+                for too.
+              </p>
+              <p class="royal-paragraph">
+                If there's one thing I genuinely wish for, it's that all your dreams come true. And if I ever get the
+                opportunity, I'd love to be someone who contributes to your happiness.
+              </p>
+              <p class="royal-paragraph royal-farewell-kitty">
+                <strong>Take care of yourself, Kitty. 🐱❤️</strong>
+              </p>
+            </div>
+
+            <!-- Royal Sign-off & Seal -->
+            <div class="royal-proclamation-footer">
+              <p class="royal-closing-phrase">With lots of memories, feelings and a little bit of courage,</p>
+              <div class="royal-signature" id="royalLetterSignature">
+                From,<br />Your Jobless Person. 😅❤️
+              </div>
+
+              <div class="royal-bottom-seal-wrap">
+                <div class="bottom-wax-seal">
+                  <span class="seal-inner-icon">⚜️</span>
+                </div>
+                <div class="bottom-seal-tag">SEALED WITH LOVE • FOREVER CHERISHED ❤️</div>
+              </div>
+            </div>
+
+            <!-- Scroll Actions -->
+            <div class="scroll-parchment-actions">
+              <button class="scroll-action-btn reroll-btn" id="scrollRerollBtn" title="Roll up the scroll">
+                <span>📜</span> Roll Up Scroll
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Wooden Dowel Roller with Gold Finials -->
+        <div class="scroll-dowel scroll-dowel-bottom">
+          <div class="dowel-finial finial-left"></div>
+          <div class="dowel-bar"></div>
+          <div class="dowel-finial finial-right"></div>
+        </div>
+
+      </div><!-- /.royal-scroll-container -->
+    </div><!-- /.royal-scroll-stage -->
   </div>
 
 

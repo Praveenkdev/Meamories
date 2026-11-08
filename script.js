@@ -473,8 +473,181 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // Royal Letter & Treasure Chest Elements
+  var treasureChest = document.getElementById('panelTreasureChest');
+  var royalPanel = document.getElementById('royalLetterPanel');
+  var royalBackBtn = document.getElementById('royalBackBtn');
+  var royalCloseBtn = document.getElementById('royalCloseBtn');
+  var royalScrollContainer = document.getElementById('royalScrollContainer');
+  var scrollRolledBundle = document.getElementById('scrollRolledBundle');
+  var royalWaxSealBtn = document.getElementById('royalWaxSealBtn');
+  var scrollRerollBtn = document.getElementById('scrollRerollBtn');
+  var royalPrompt = document.getElementById('royalScrollPrompt');
+  var royalLetterContent = document.getElementById('royalLetterContent');
+  var royalLetterSignature = document.getElementById('royalLetterSignature');
+
+  // Sound synthesis helpers using Web Audio API (100% reliable, zero external files)
+  function playChestAudio() {
+    try {
+      var AudioContext = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContext) return;
+      var ctx = new AudioContext();
+      if (ctx.state === 'suspended') ctx.resume();
+
+      var notes = [440, 554.37, 659.25, 880];
+      notes.forEach(function (freq, i) {
+        var osc = ctx.createOscillator();
+        var gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, ctx.currentTime + i * 0.05);
+
+        gain.gain.setValueAtTime(0.001, ctx.currentTime + i * 0.05);
+        gain.gain.linearRampToValueAtTime(0.12, ctx.currentTime + i * 0.05 + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + i * 0.05 + 0.45);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(ctx.currentTime + i * 0.05);
+        osc.stop(ctx.currentTime + i * 0.05 + 0.5);
+      });
+    } catch (e) { }
+  }
+
+  function playUnrollAudio() {
+    try {
+      var AudioContext = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContext) return;
+      var ctx = new AudioContext();
+      if (ctx.state === 'suspended') ctx.resume();
+
+      // Parchment paper rustle
+      var bufSize = Math.floor(ctx.sampleRate * 0.38);
+      var buf = ctx.createBuffer(1, bufSize, ctx.sampleRate);
+      var out = buf.getChannelData(0);
+      for (var i = 0; i < bufSize; i++) {
+        out[i] = (Math.random() * 2 - 1) * Math.exp(-i / (ctx.sampleRate * 0.13));
+      }
+      var noise = ctx.createBufferSource();
+      noise.buffer = buf;
+
+      var filter = ctx.createBiquadFilter();
+      filter.type = 'bandpass';
+      filter.frequency.setValueAtTime(800, ctx.currentTime);
+      filter.frequency.exponentialRampToValueAtTime(320, ctx.currentTime + 0.35);
+      filter.Q.value = 1.8;
+
+      var noiseGain = ctx.createGain();
+      noiseGain.gain.setValueAtTime(0.25, ctx.currentTime);
+      noiseGain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.36);
+
+      noise.connect(filter);
+      filter.connect(noiseGain);
+      noiseGain.connect(ctx.destination);
+      noise.start();
+
+      // Royal harp arpeggio chime
+      var chimeNotes = [523.25, 659.25, 783.99, 1046.50];
+      chimeNotes.forEach(function (freq, idx) {
+        var osc = ctx.createOscillator();
+        var gain = ctx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(freq, ctx.currentTime + 0.06 + idx * 0.07);
+
+        gain.gain.setValueAtTime(0.001, ctx.currentTime + 0.06 + idx * 0.07);
+        gain.gain.linearRampToValueAtTime(0.14, ctx.currentTime + 0.06 + idx * 0.07 + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.06 + idx * 0.07 + 0.7);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(ctx.currentTime + 0.06 + idx * 0.07);
+        osc.stop(ctx.currentTime + 0.06 + idx * 0.07 + 0.75);
+      });
+    } catch (e) { }
+  }
+
+  // 1. Treasure Chest click in Hidden Panel 1
+  if (treasureChest && royalPanel) {
+    treasureChest.addEventListener('click', function () {
+      playChestAudio();
+      treasureChest.classList.add('chest-opening');
+      setTimeout(function () {
+        treasureChest.classList.remove('chest-opening');
+        royalPanel.classList.add('open');
+        royalPanel.scrollTop = 0;
+      }, 250);
+    });
+
+    treasureChest.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        treasureChest.click();
+      }
+    });
+  }
+
+  // 2. Navigation in Royal Panel
+  if (royalBackBtn && royalPanel) {
+    royalBackBtn.addEventListener('click', function () {
+      royalPanel.classList.remove('open');
+    });
+  }
+
+  if (royalCloseBtn && royalPanel) {
+    royalCloseBtn.addEventListener('click', function () {
+      royalPanel.classList.remove('open');
+      var p1 = document.getElementById('secretPanel');
+      var m1 = document.getElementById('panel1Music');
+      if (p1) closePanel(p1, m1);
+    });
+  }
+
+  // 3. Unrolling & Re-rolling the Scroll
+  function unrollScroll() {
+    if (!royalScrollContainer || royalScrollContainer.classList.contains('unrolled')) return;
+    playUnrollAudio();
+    royalScrollContainer.classList.add('unrolled');
+    if (royalPrompt) {
+      royalPrompt.innerHTML = '<span class="royal-prompt-sparkle">✦</span><span class="royal-prompt-text">A Letter For You 💌</span><span class="royal-prompt-sparkle">✦</span>';
+    }
+  }
+
+  function rerollScroll() {
+    if (!royalScrollContainer || !royalScrollContainer.classList.contains('unrolled')) return;
+    royalScrollContainer.classList.remove('unrolled');
+    if (royalPrompt) {
+      royalPrompt.innerHTML = '<span class="royal-prompt-sparkle">✦</span><span class="royal-prompt-text">Touch the Wax Seal to Open the Letter</span><span class="royal-prompt-sparkle">✦</span>';
+    }
+  }
+
+  if (scrollRolledBundle) {
+    scrollRolledBundle.addEventListener('click', unrollScroll);
+    scrollRolledBundle.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        unrollScroll();
+      }
+    });
+  }
+
+  if (royalWaxSealBtn) {
+    royalWaxSealBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      unrollScroll();
+    });
+  }
+
+  if (scrollRerollBtn) {
+    scrollRerollBtn.addEventListener('click', rerollScroll);
+  }
+
   document.addEventListener('keydown', function (e) {
     if (e.key !== 'Escape') return;
+
+    if (royalPanel && royalPanel.classList.contains('open')) {
+      royalPanel.classList.remove('open');
+      return;
+    }
+
     panelConfigs.forEach(function (cfg) {
       var p = document.getElementById(cfg.panelId);
       var m = document.getElementById(cfg.musicId);
@@ -484,6 +657,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function closePanel(panel, musicEl) {
     panel.classList.remove('open');
+    if (royalPanel && royalPanel.classList.contains('open')) {
+      royalPanel.classList.remove('open');
+    }
     document.body.style.overflow = '';
     if (lockIcon) lockIcon.textContent = '🔐';
     stopPanelMusic(musicEl);

@@ -12,6 +12,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Cinzel:wght@500;700;900&family=MedievalSharp&family=Outfit:wght@300;400;500;600&display=swap"
     rel="stylesheet" />
+  <link rel="preload" as="audio" href="music/Video Project 2.m4a" type="audio/mp4" />
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -49,10 +50,10 @@
     <div class="grain-overlay"></div>
     <!-- Floating polaroids -->
     <div class="floating-polaroids">
-      <div class="float-polaroid fp1"><img src="images/photo1.jpg" alt="Memory 1" /></div>
-      <div class="float-polaroid fp2"><img src="images/photo2.jpg" alt="Memory 2" /></div>
-      <div class="float-polaroid fp3"><img src="images/photo3.jpg" alt="Memory 3" /></div>
-      <div class="float-polaroid fp4"><img src="images/photo4.jpg" alt="Memory 4" /></div>
+      <div class="float-polaroid fp1"><img src="images/photo1.jpg" alt="Memory 1" loading="eager" fetchpriority="high" decoding="sync" /></div>
+      <div class="float-polaroid fp2"><img src="images/photo2.jpg" alt="Memory 2" loading="eager" fetchpriority="high" decoding="sync" /></div>
+      <div class="float-polaroid fp3"><img src="images/photo3.jpg" alt="Memory 3" loading="eager" fetchpriority="high" decoding="sync" /></div>
+      <div class="float-polaroid fp4"><img src="images/photo4.jpg" alt="Memory 4" loading="eager" fetchpriority="high" decoding="sync" /></div>
     </div>
     <div class="hero-content fade-in">
       <div class="hero-badge">✦My Comfort Zone✦</div>
@@ -76,22 +77,22 @@
     <p class="section-quote reveal">"It started with one hello — and turned into forever."</p>
     <div class="collage-grid cg-chapter1 reveal">
       <div class="polaroid p-rotate-left p-shadow" style="--delay:0s">
-        <img src="images/photo5.jpg" alt="First day together" />
+        <img src="images/photo5.jpg" alt="First day together" loading="lazy" decoding="async" />
         <span class="polaroid-caption">First movie together</span>
         <div class="tape tape-top"></div>
       </div>
       <div class="polaroid p-rotate-right p-shadow" style="--delay:0.15s">
-        <img src="images/photo6.jpg" alt="Campus walks" />
+        <img src="images/photo6.jpg" alt="Campus walks" loading="lazy" decoding="async" />
         <span class="polaroid-caption">Sneaking out of campus✨</span>
         <div class="tape tape-right"></div>
       </div>
       <div class="polaroid p-straight p-shadow" style="--delay:0.3s">
-        <img src="images/photo8.jpg" alt="Cafeteria days" />
+        <img src="images/photo8.jpg" alt="Cafeteria days" loading="lazy" decoding="async" />
         <span class="polaroid-caption">One Final Trip</span>
         <div class="tape tape-top"></div>
       </div>
       <div class="polaroid p-rotate-left p-shadow" style="--delay:0.45s">
-        <img src="images/photo7.jpg" alt="Study nights" />
+        <img src="images/photo7.jpg" alt="Study nights" loading="lazy" decoding="async" />
         <span class="polaroid-caption">Wonderful days ✨</span>
         <div class="tape tape-left"></div>
       </div>
@@ -122,17 +123,16 @@
     <p class="section-quote reveal">"The day where i laughed till i cried..."</p>
     <div class="collage-grid cg-chapter2 reveal">
       <div class="polaroid p-rotate-right p-shadow" style="--delay:0s">
-        <img src="images/photo9.jpg" alt="College fest" />
+        <img src="images/photo9.jpg" alt="College fest" loading="lazy" decoding="async" />
         <span class="polaroid-caption">Fest vibes 🎶</span>
         <div class="tape tape-top"></div>
       </div>
       <div class="feature-photo p-shadow" style="--delay:0.2s">
-        <img src="images/photo10.jpg
-        " alt="Squad goals" />
+        <img src="images/photo10.jpg " alt="Squad goals" loading="lazy" decoding="async" />
         <span class="feature-caption">Funniest moments 😂</span>
       </div>
       <div class="polaroid p-rotate-left p-shadow" style="--delay:0.35s">
-        <img src="images/photo11.jpg" alt="Road trip" />
+        <img src="images/photo11.jpg" alt="Road trip" loading="lazy" decoding="async" />
         <span class="polaroid-caption">Best Times Ever!</span>
         <div class="tape tape-right"></div>
       </div>
@@ -164,27 +164,27 @@
     <p class="section-quote reveal">"Every photo hides a story only we know."</p>
     <div class="masonry-grid reveal" id="galleryGrid">
       <div class="masonry-item" data-src="images/photo1.jpg">
-        <img src="images/photo12.jpg" alt="Memory 1" />
+        <img src="images/photo12.jpg" alt="Memory 1" loading="lazy" decoding="async" />
         <div class="masonry-hover"><span>View Memory ✦</span></div>
       </div>
       <div class="masonry-item" data-src="images/photo2.jpg">
-        <img src="images/photo13.jpg" alt="Memory 2" />
+        <img src="images/photo13.jpg" alt="Memory 2" loading="lazy" decoding="async" />
         <div class="masonry-hover"><span>View Memory ✦</span></div>
       </div>
       <div class="masonry-item" data-src="images/photo3.jpg">
-        <img src="images/photo14.jpg" alt="Memory 3" />
+        <img src="images/photo14.jpg" alt="Memory 3" loading="lazy" decoding="async" />
         <div class="masonry-hover"><span>View Memory ✦</span></div>
       </div>
       <div class="masonry-item" data-src="images/photo4.jpg">
-        <img src="images/photo15.jpg" alt="Memory 4" />
+        <img src="images/photo15.jpg" alt="Memory 4" loading="lazy" decoding="async" />
         <div class="masonry-hover"><span>View Memory ✦</span></div>
       </div>
       <div class="masonry-item" data-src="images/photo5.jpg">
-        <img src="images/photo16.jpg" alt="Memory 5" />
+        <img src="images/photo16.jpg" alt="Memory 5" loading="lazy" decoding="async" />
         <div class="masonry-hover"><span>View Memory ✦</span></div>
       </div>
       <div class="masonry-item" data-src="images/photo6.jpg">
-        <img src="images/photo17.jpg" alt="Memory 6" />
+        <img src="images/photo17.jpg" alt="Memory 6" loading="lazy" decoding="async" />
         <div class="masonry-hover"><span>View Memory ✦</span></div>
       </div>
     </div>
@@ -197,7 +197,7 @@
     <button class="lightbox-close" id="lightboxClose" aria-label="Close">✕</button>
     <button class="lightbox-nav prev" id="lightboxPrev" aria-label="Previous">‹</button>
     <div class="lightbox-img-wrap">
-      <img src="" alt="Expanded memory" id="lightboxImg" />
+      <img src="" alt="Expanded memory" id="lightboxImg" loading="lazy" decoding="async" />
     </div>
     <button class="lightbox-nav next" id="lightboxNext" aria-label="Next">›</button>
   </div>
@@ -210,7 +210,7 @@
     <p class="section-quote reveal">"The best memories weren't planned — they just happened."</p>
     <div class="collage-scatter reveal">
       <div class="polaroid p-rotate-left p-shadow scatter-1" style="--delay:0s">
-        <img src="images/photo18.jpg" alt="Canteen fun" />
+        <img src="images/photo18.jpg" alt="Canteen fun" loading="lazy" decoding="async" />
         <span class="polaroid-caption">Table for us</span>
         <div class="tape tape-top"></div>
       </div>
@@ -219,12 +219,12 @@
         <span>— always yours ♥</span>
       </div>
       <div class="polaroid p-rotate-right p-shadow scatter-3" style="--delay:0.1s">
-        <img src="images/photo19.jpg" alt="Farewell" />
+        <img src="images/photo19.jpg" alt="Farewell" loading="lazy" decoding="async" />
         <span class="polaroid-caption">Pure chaos, pure fun 💥</span>
         <div class="tape tape-left"></div>
       </div>
       <div class="polaroid p-straight p-shadow scatter-4" style="--delay:0.3s">
-        <img src="images/photo20.jpg" alt="Study nights" />
+        <img src="images/photo20.jpg" alt="Study nights" loading="lazy" decoding="async" />
         <span class="polaroid-caption">Where Time Passed 🥺</span>
         <div class="tape tape-right"></div>
       </div>
@@ -280,15 +280,15 @@
       <!-- Top 3 photos -->
       <div class="secret-photos-row">
         <div class="secret-polaroid sp-rotate-left">
-          <img src="images/hidden1.jpg" alt="Secret memory 1" />
+          <img src="images/hidden1.jpg" alt="Secret memory 1" loading="lazy" decoding="async" />
           <span>Always you 💛</span>
         </div>
         <div class="secret-polaroid sp-straight">
-          <img src="images/hidden2.jpg" alt="Secret memory 2" />
+          <img src="images/hidden2.jpg" alt="Secret memory 2" loading="lazy" decoding="async" />
           <span>That one day ✨</span>
         </div>
         <div class="secret-polaroid sp-rotate-right">
-          <img src="images/hidden3.jpg" alt="Secret memory 3" />
+          <img src="images/hidden3.jpg" alt="Secret memory 3" loading="lazy" decoding="async" />
           <span>That one crazy day 🌊</span>
         </div>
       </div>
@@ -308,15 +308,15 @@
       <!-- Bottom 3 photos -->
       <div class="secret-photos-row">
         <div class="secret-polaroid sp-rotate-right">
-          <img src="images/hidden4.jpg" alt="Secret memory 4" />
+          <img src="images/hidden4.jpg" alt="Secret memory 4" loading="lazy" decoding="async" />
           <span>Irreplaceable 🎞️</span>
         </div>
         <div class="secret-polaroid sp-straight">
-          <img src="images/hidden5.jpg" alt="Secret memory 5" />
+          <img src="images/hidden5.jpg" alt="Secret memory 5" loading="lazy" decoding="async" />
           <span>Same people, same madness 😂</span>
         </div>
         <div class="secret-polaroid sp-rotate-left">
-          <img src="images/hidden6.jpg" alt="Secret memory 6" />
+          <img src="images/hidden6.jpg" alt="Secret memory 6" loading="lazy" decoding="async" />
           <span>Holding onto moments 🤍</span>
         </div>
       </div>
@@ -752,15 +752,15 @@
       <!-- Top 3 photos -->
       <div class="secret-photos-row">
         <div class="secret-polaroid sp-rotate-right">
-          <img src="images/celebrity4.jpg" alt="Hidden memory 1" />
+          <img src="images/celebrity4.jpg" alt="Hidden memory 1" loading="lazy" decoding="async" />
           <span>Just the two of us 🌙</span>
         </div>
         <div class="secret-polaroid sp-straight">
-          <img src="images/celebrity1.jpg" alt="Hidden memory 2" />
+          <img src="images/celebrity1.jpg" alt="Hidden memory 2" loading="lazy" decoding="async" />
           <span>Favourite memories ✨</span>
         </div>
         <div class="secret-polaroid sp-rotate-left">
-          <img src="images/celebrity2.jpg" alt="Hidden memory 3" />
+          <img src="images/celebrity2.jpg" alt="Hidden memory 3" loading="lazy" decoding="async" />
           <span>Miss u celebrity ✨</span>
         </div>
       </div>
@@ -790,15 +790,15 @@
       <!-- Bottom 3 photos -->
       <div class="secret-photos-row">
         <div class="secret-polaroid sp-rotate-left">
-          <img src="images/celebrity3.jpg" alt="Hidden memory 4" />
+          <img src="images/celebrity3.jpg" alt="Hidden memory 4" loading="lazy" decoding="async" />
           <span>No words needed 🤍</span>
         </div>
         <div class="secret-polaroid sp-straight">
-          <img src="images/celebrity5.jpg" alt="Hidden memory 5" />
+          <img src="images/celebrity5.jpg" alt="Hidden memory 5" loading="lazy" decoding="async" />
           <span>Frozen in time 🎞️</span>
         </div>
         <div class="secret-polaroid sp-rotate-right">
-          <img src="images/celebrity6.jpg" alt="Hidden memory 6" />
+          <img src="images/celebrity6.jpg" alt="Hidden memory 6" loading="lazy" decoding="async" />
           <span>Forever grateful 💛</span>
         </div>
       </div>
@@ -821,11 +821,11 @@
       <!-- Top 3 photos -->
       <div class="secret-photos-row">
         <div class="secret-polaroid sp-rotate-left">
-          <img src="images/swe1.jpg" alt="Hidden memory 1" />
+          <img src="images/swe1.jpg" alt="Hidden memory 1" loading="lazy" decoding="async" />
           <span>Crazy times ✨</span>
         </div>
         <div class="secret-polaroid sp-straight">
-          <img src="images/swe2.jpg" alt="Hidden memory 2" />
+          <img src="images/swe2.jpg" alt="Hidden memory 2" loading="lazy" decoding="async" />
           <span>Always smiling 😊</span>
         </div>
       </div>
@@ -850,7 +850,7 @@
       <!-- Bottom 3 photos -->
       <div class="secret-photos-row">
         <div class="secret-polaroid sp-rotate-right">
-          <img src="images/swe3.jpg" alt="Hidden memory 4" />
+          <img src="images/swe3.jpg" alt="Hidden memory 4" loading="lazy" decoding="async" />
           <span>Golden days 💛</span>
         </div>
       </div>
@@ -873,15 +873,15 @@
       <!-- Top 3 photos -->
       <div class="secret-photos-row">
         <div class="secret-polaroid sp-rotate-right">
-          <img src="images/swee1.jpg" alt="Hidden memory 1" />
+          <img src="images/swee1.jpg" alt="Hidden memory 1" loading="lazy" decoding="async" />
           <span>Adventure awaits 🌎</span>
         </div>
         <div class="secret-polaroid sp-straight">
-          <img src="images/swee2.jpg" alt="Hidden memory 2" />
+          <img src="images/swee2.jpg" alt="Hidden memory 2" loading="lazy" decoding="async" />
           <span>Sunsets and you 🌅</span>
         </div>
         <div class="secret-polaroid sp-rotate-left">
-          <img src="images/swee3.jpg" alt="Hidden memory 3" />
+          <img src="images/swee3.jpg" alt="Hidden memory 3" loading="lazy" decoding="async" />
           <span>Lost in time ⏳</span>
         </div>
       </div>
@@ -905,15 +905,15 @@
       <!-- Bottom 3 photos -->
       <div class="secret-photos-row">
         <div class="secret-polaroid sp-rotate-left">
-          <img src="images/swee4.jpg" alt="Hidden memory 4" />
+          <img src="images/swee4.jpg" alt="Hidden memory 4" loading="lazy" decoding="async" />
           <span>Perfect escape 🍃</span>
         </div>
         <div class="secret-polaroid sp-straight">
-          <img src="images/swee5.jpg" alt="Hidden memory 5" />
+          <img src="images/swee5.jpg" alt="Hidden memory 5" loading="lazy" decoding="async" />
           <span>Just vibes ✨</span>
         </div>
         <div class="secret-polaroid sp-rotate-right">
-          <img src="images/swee6.jpg" alt="Hidden memory 6" />
+          <img src="images/swee6.jpg" alt="Hidden memory 6" loading="lazy" decoding="async" />
           <span>My happy place 💛</span>
         </div>
       </div>
@@ -936,15 +936,15 @@
       <!-- Top 3 photos -->
       <div class="secret-photos-row">
         <div class="secret-polaroid sp-rotate-left">
-          <img src="images/kerthi1.jpg" alt="Hidden memory 1" />
+          <img src="images/kerthi1.jpg" alt="Hidden memory 1" loading="lazy" decoding="async" />
           <span>Vibes ✨</span>
         </div>
         <div class="secret-polaroid sp-straight">
-          <img src="images/kerthi2.jpg" alt="Hidden memory 2" />
+          <img src="images/kerthi2.jpg" alt="Hidden memory 2" loading="lazy" decoding="async" />
           <span>Smile 😊</span>
         </div>
         <div class="secret-polaroid sp-rotate-right">
-          <img src="images/kerthi3.jpg" alt="Hidden memory 3" />
+          <img src="images/kerthi3.jpg" alt="Hidden memory 3" loading="lazy" decoding="async" />
           <span>Memory 🌟</span>
         </div>
       </div>
@@ -972,15 +972,15 @@
       <!-- Bottom 3 photos -->
       <div class="secret-photos-row">
         <div class="secret-polaroid sp-rotate-right">
-          <img src="images/kerthi4.jpg" alt="Hidden memory 4" />
+          <img src="images/kerthi4.jpg" alt="Hidden memory 4" loading="lazy" decoding="async" />
           <span>Golden 💛</span>
         </div>
         <div class="secret-polaroid sp-straight">
-          <img src="images/kerthi5.jpg" alt="Hidden memory 5" />
+          <img src="images/kerthi5.jpg" alt="Hidden memory 5" loading="lazy" decoding="async" />
           <span>Moments 🤍</span>
         </div>
         <div class="secret-polaroid sp-rotate-left">
-          <img src="images/kerthi6.jpg" alt="Hidden memory 6" />
+          <img src="images/kerthi6.jpg" alt="Hidden memory 6" loading="lazy" decoding="async" />
           <span>Always 🌙</span>
         </div>
       </div>
@@ -1003,15 +1003,15 @@
       <!-- Top 3 photos -->
       <div class="secret-photos-row">
         <div class="secret-polaroid sp-rotate-right">
-          <img src="images/lek1.jpg" alt="Hidden memory 1" />
+          <img src="images/lek1.jpg" alt="Hidden memory 1" loading="lazy" decoding="async" />
           <span>Adventure 🌎</span>
         </div>
         <div class="secret-polaroid sp-straight">
-          <img src="images/lek2.jpg" alt="Hidden memory 2" />
+          <img src="images/lek2.jpg" alt="Hidden memory 2" loading="lazy" decoding="async" />
           <span>Sunsets 🌅</span>
         </div>
         <div class="secret-polaroid sp-rotate-left">
-          <img src="images/lek3.jpg" alt="Hidden memory 3" />
+          <img src="images/lek3.jpg" alt="Hidden memory 3" loading="lazy" decoding="async" />
           <span>Time ⏳</span>
         </div>
       </div>
@@ -1042,15 +1042,15 @@
       <!-- Bottom 3 photos -->
       <div class="secret-photos-row">
         <div class="secret-polaroid sp-rotate-left">
-          <img src="images/lek4.jpg" alt="Hidden memory 4" />
+          <img src="images/lek4.jpg" alt="Hidden memory 4" loading="lazy" decoding="async" />
           <span>Escape 🍃</span>
         </div>
         <div class="secret-polaroid sp-straight">
-          <img src="images/lek5.jpg" alt="Hidden memory 5" />
+          <img src="images/lek5.jpg" alt="Hidden memory 5" loading="lazy" decoding="async" />
           <span>Vibes ✨</span>
         </div>
         <div class="secret-polaroid sp-rotate-right">
-          <img src="images/lek6.jpg" alt="Hidden memory 6" />
+          <img src="images/lek6.jpg" alt="Hidden memory 6" loading="lazy" decoding="async" />
           <span>Happy 💛</span>
         </div>
       </div>
@@ -1109,7 +1109,7 @@
       <div class="video-polaroid">
         <div class="video-tape"></div>
         <div class="video-inner">
-          <video id="memoryVideo" src="videos/Funny.mp4" controls playsinline poster="images/photo3.jpg"></video>
+          <video id="memoryVideo" src="videos/Funny.mp4" controls playsinline poster="images/photo3.jpg" preload="none"></video>
           <div class="video-play-hint" id="videoPlayHint">
             <div class="vph-btn">▶</div>
             <span>Play Memory</span>
@@ -1135,32 +1135,32 @@
   </audio>
 
   <!-- Secret Panel 1 song -->
-  <audio id="panel1Music" loop preload="auto">
+  <audio id="panel1Music" loop preload="none">
     <source src="music/remobgm.mp3" type="audio/mpeg" />
   </audio>
 
   <!-- Secret Panel 2 song -->
-  <audio id="panel2Music" loop preload="auto">
+  <audio id="panel2Music" loop preload="none">
     <source src="music/remobgm.mp3" type="audio/mpeg" />
   </audio>
 
   <!-- Secret Panel 3 song -->
-  <audio id="panel3Music" loop preload="auto">
+  <audio id="panel3Music" loop preload="none">
     <source src="music/remobgm.mp3" type="audio/mpeg" />
   </audio>
 
   <!-- Secret Panel 4 song -->
-  <audio id="panel4Music" loop preload="auto">
+  <audio id="panel4Music" loop preload="none">
     <source src="music/remobgm.mp3" type="audio/mpeg" />
   </audio>
 
   <!-- Secret Panel 5 song -->
-  <audio id="panel5Music" loop preload="auto">
+  <audio id="panel5Music" loop preload="none">
     <source src="music/remobgm.mp3" type="audio/mpeg" />
   </audio>
 
   <!-- Secret Panel 6 song -->
-  <audio id="panel6Music" loop preload="auto">
+  <audio id="panel6Music" loop preload="none">
     <source src="music/remobgm.mp3" type="audio/mpeg" />
   </audio>
 

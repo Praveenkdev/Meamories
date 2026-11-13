@@ -487,6 +487,8 @@ img {
   padding: 100px 5% 120px;
   background: var(--offwhite);
   overflow: hidden;
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 900px;
 }
 
 .memory-section--alt {

@@ -1849,7 +1849,7 @@ img {
    TREASURE CHEST TRIGGER (In Hidden Panel 1 - Bottom of Lock Again Button)
    ======================================================== */
 .panel-chest-bottom-row {
-  display: flex;
+  display: none !important;
   justify-content: flex-end;
   width: 100%;
   max-width: 900px;

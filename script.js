@@ -676,7 +676,9 @@ document.addEventListener('DOMContentLoaded', () => {
 /* ---------- SERVICE WORKER REGISTRATION (Cache & Optimistic UI) ---------- */
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function () {
-    navigator.serviceWorker.register('./sw.js').catch(function () {});
+    navigator.serviceWorker.register('./sw.js').then(function (reg) {
+      reg.update();
+    }).catch(function () {});
   });
 }
 
